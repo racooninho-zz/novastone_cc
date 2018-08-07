@@ -1,9 +1,10 @@
-For this challenge I've used Python 3.6.5 in windows
-
+For this challenge I've used Python 3.6.5
 For the external libraries I've used flask and uuid
 
 To run the server just navigate to your local repository and in the command line do "python app.py". 
-The app will run on http://127.0.0.1:5000.
+The app will run on http://127.0.0.1:5000
+
+I've added a postman collection to the repository - Novastone.postman_collection.json
 
 From the requirements, I've created the following endpoints:
 
