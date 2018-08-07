@@ -15,6 +15,11 @@ http://127.0.0.1:5000/login/
        "username": "user1",
        "password": "password1"
       }
+      
+    As per the logins.json file in the static folder, the accepted logins are:
+    "username": "user1", "password": "password1"
+    "username": "user2", "password": "password2"
+    "username": "user3", "password": "password3" 
 
 - ADD TASK -
 http://127.0.0.1:5000/user1/todo/add
