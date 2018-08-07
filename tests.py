@@ -1,7 +1,7 @@
 import unittest
-import app
 import json
-
+import app
+import utils
 
 class TestFlaskApi(unittest.TestCase):
     def setUp(self):
@@ -14,14 +14,14 @@ class TestFlaskApi(unittest.TestCase):
                                  content_type='application/json')
         self.assertEqual(response.json, {'success': True})
 
-        number_of_cookies = len(app.cookie_dict)
+        number_of_cookies = len(utils.cookie_dict)
         self.assertEqual(number_of_cookies, 1)
 
         # login user2
         self.app.post('/login/', data=json.dumps(dict(username='user2', password='password2')),
                       content_type='application/json')
 
-        number_of_cookies = len(app.cookie_dict)
+        number_of_cookies = len(utils.cookie_dict)
         # Test number of cookies after 2 login
         self.assertEqual(number_of_cookies, 2)
 
@@ -40,7 +40,7 @@ class TestFlaskApi(unittest.TestCase):
                                  content_type='application/json')
         self.assertEqual(response.json, {'success': True})
 
-        number_of_cookies = len(app.cookie_dict)
+        number_of_cookies = len(utils.cookie_dict)
         self.assertEqual(number_of_cookies, 2)
 
         ###############
@@ -50,7 +50,7 @@ class TestFlaskApi(unittest.TestCase):
         self.assertEqual(response.json,
                          {"message": "logout successful", "success": True})
 
-        number_of_cookies = len(app.cookie_dict)
+        number_of_cookies = len(utils.cookie_dict)
         self.assertEqual(number_of_cookies, 1)
 
     def test_login_success_and_create_tasks_and_complete_and_delete(self):
@@ -67,7 +67,7 @@ class TestFlaskApi(unittest.TestCase):
         self.assertEqual(response.json,
                          {'message': 'task created', 'success': True})
 
-        todo_list = app.todo_list
+        todo_list = utils.todo_list
         self.assertEqual(todo_list['user1'][1]['message'], 'test message 1')
         self.assertEqual(todo_list['user1'][1]['completed'], False)
 
@@ -75,7 +75,7 @@ class TestFlaskApi(unittest.TestCase):
         self.app.post('/user1/todo/add', data=json.dumps(dict(message="test message 2")),
                       content_type='application/json')
 
-        length_todo_list = len(app.todo_list['user1'])
+        length_todo_list = len(utils.todo_list['user1'])
         self.assertEqual(length_todo_list, 2)
         self.assertEqual(todo_list['user1'][2]['message'], 'test message 2')
 
@@ -114,7 +114,7 @@ class TestFlaskApi(unittest.TestCase):
         self.assertEqual(response.json['3'],
                          {'completed': False, 'message': 'test message 3', 'username': 'user1'})
 
-        length_todo_list = len(app.todo_list['user1'])
+        length_todo_list = len(utils.todo_list['user1'])
         self.assertEqual(length_todo_list, 2)
 
         #################
