@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "a1dc35ba-f82c-4ceb-a12b-2a7a54bbd13b",
+		"name": "Novastone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "908fba33-5455-499a-83d6-ff76186fa064",
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"username\": \"user1\",\r\n \"password\": \"password1\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "7b453d8a-d741-438e-b363-536d57d52913",
+			"name": "Add task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"message\": \"test message 1\"}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/user1/todo/add",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"user1",
+						"todo",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "bb37e308-278b-49bb-a0c9-6a1261ba7a0d",
+			"name": "Retrieve ToDo List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:5000/user1/todo/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"user1",
+						"todo",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "13cbeff1-58d1-45d9-af41-38c83d76913d",
+			"name": "Complete Task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:5000/user1/todo/complete/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"user1",
+						"todo",
+						"complete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "ebd59e90-9811-45df-a70b-eb49433bc2af",
+			"name": "Delete Task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:5000/user1/todo/delete/6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"user1",
+						"todo",
+						"delete",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "c839935c-8e34-4a1c-aff5-9326b1d823e6",
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:5000/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
