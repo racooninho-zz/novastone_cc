@@ -16,6 +16,7 @@ def login():
         login_details = utils.get_login_details(login_username)[0]
 
         if login_username == login_details['username'] and login_password == login_details['password']:
+            # Creates  new cookie and stores it in a cookie dictionary
             my_id = uuid.uuid1()
             existing_cookie = utils.create_cookie_dict(login_username, str(my_id))
 
@@ -30,6 +31,7 @@ def login():
 @app.route('/logout/', methods=['GET'])
 def logout():
     if request.method == 'GET':
+        # Get user currently logged in
         user_cookie = request.cookies.get('cookie_key')
         try:
             username = list(utils.cookie_dict.keys())[list(utils.cookie_dict.values()).index(user_cookie)]
